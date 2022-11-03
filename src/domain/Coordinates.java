@@ -1,24 +1,30 @@
 package domain;
 
+/**
+ * Формат обращения в двумерном массиве: строка / столбец.
+ * Формат для игрового поля столбец (буква) / строка (цифра).
+ * Для этого в классе координат x / y меняем местами.
+*/
+
 public class Coordinates {
-    private int x;
-    private int y;
+    private int d;
+    private int l;
 
     public Coordinates(int x, int y) {
-        this.x = y;
-        this.y = x;
+        this.d = y;
+        this.l = x;
     }
 
     public void setCoords (int x, int y) {
-        this.x = y;
-        this.y = x;
+        this.d = y;
+        this.l = x;
     }
 
-    public int getX() {
-        return x;
+    public int getD() {
+        return d;
     }
 
-    public int getY() {
-        return y;
+    public int getL() {
+        return l;
     }
 }

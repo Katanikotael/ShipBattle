@@ -12,12 +12,17 @@ public class Field {
 
     public void deployShip (Ship ship) {
         for (int i = 0; i < ship.getSize(); i++) {
-            this.matrix[ship.getBlockX(i)][ship.getBlockY(i)] = 1;
+            this.matrix[ship.getBlockD(i)][ship.getBlockL(i)] = 1;
         }
     }
 
     public void print () {
+        System.out.println("   А Б В Г Д Е Ж З И К");
+        int k = 1;
         for (int[] ints : this.matrix) {
+            System.out.print(k + " ");
+            if (k != 10) System.out.print(" ");
+            k++;
             for (int i = 0; i < ints.length; i++) {
                 System.out.print(ints[i] + " ");
             }

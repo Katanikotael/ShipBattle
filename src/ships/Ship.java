@@ -12,12 +12,12 @@ public class Ship {
         this.coords = new Coordinates[size];
     }
 
-    public int getBlockX (int blockNum) {
-        return coords[blockNum].getX();
+    public int getBlockD(int blockNum) {
+        return coords[blockNum].getD();
     }
 
-    public int getBlockY (int blockNum) {
-        return coords[blockNum].getY();
+    public int getBlockL(int blockNum) {
+        return coords[blockNum].getL();
     }
 
     public int getSize() {
