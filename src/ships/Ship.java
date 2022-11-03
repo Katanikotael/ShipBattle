@@ -23,4 +23,5 @@ public class Ship {
     public int getSize() {
         return size;
     }
+
 }
