@@ -2,24 +2,14 @@ package cycle;
 
 import domain.Shot;
 import fields.Field;
+import services.PlayerCommand;
 import services.ShipAliveChecker;
 
 public class GameStep {
 
     public static void playerTurn(Field field) {
-        // указание координат выстрела
-        // проверка на попадание
-        // подсчет результатов
-        Shot shot;
-        shot = new Shot(4,4);
-        takeShot(field, shot);
-        shot = new Shot(4, 6);
-        takeShot(field, shot);
-        shot = new Shot(4, 5);
-        takeShot(field, shot);
-        shot = new Shot(5, 7);
-        takeShot(field, shot);
-        shot = new Shot(4, 7);
+        PlayerCommand com = new PlayerCommand();
+        Shot shot = new Shot(com.getCoords().getL(), com.getCoords().getD());
         takeShot(field, shot);
     }
 

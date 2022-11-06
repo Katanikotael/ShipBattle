@@ -1,4 +1,4 @@
-import cycle.GameStep;
+import cycle.GameCycle;
 import fields.Field;
 import fields.FieldOwn;
 import ships.ShipPack;
@@ -13,6 +13,6 @@ public class Main {
 //        myShipPack.manualDeploy(myField, 4, 4, Direction.DOWN);
         myField.print();
 
-        GameStep.playerTurn(myField);
+        GameCycle.run(myField);
     }
 }
