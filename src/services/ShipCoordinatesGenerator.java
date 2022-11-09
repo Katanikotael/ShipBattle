@@ -4,8 +4,6 @@ import domain.Coordinates;
 import domain.Direction;
 import ships.Ship;
 
-import java.util.Random;
-
 /**
  * Generate valid coordinates for ship.
  */
@@ -24,12 +22,10 @@ public class ShipCoordinatesGenerator {
 
     // Generates random ship's coordinates.
     private static void generatePlace(Ship ship) {
-        int l, d;
-        Random rnd = new Random();
-        l = rnd.nextInt(10);
-        d = rnd.nextInt(10);
         Direction dir = Direction.getRandomDirection();
-        ship.coords[0] = new Coordinates(l, d);
+        ship.coords[0] = RandomCoordinatesGenerator.generate();
+        int l = ship.coords[0].getL();
+        int d = ship.coords[0].getD();
         for (int i = 1; i < ship.coords.length; i++) {
             Coordinates currentCoordinate = new Coordinates(dir.getL(l, d, i), dir.getD(l, d, i));
             ship.coords[i] = currentCoordinate;

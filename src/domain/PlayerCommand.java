@@ -1,6 +1,6 @@
-package services;
+package domain;
 
-import domain.Coordinates;
+import services.CharTranslater;
 
 import java.util.Scanner;
 

@@ -4,12 +4,17 @@ import fields.Field;
 
 public class GameCycle {
 
-    public static void run(Field field) {
+    public static void run(Field botField, Field playerField) {
         boolean isInGame = true;
+        GameStep.isPlayerTurn = false;
 
         while (isInGame) {
-            GameStep.playerTurn(field);
-            isInGame = field.aliveChecker();
+            if (GameStep.isPlayerTurn) {
+                GameStep.playerTurn(botField);
+                isInGame = botField.aliveChecker();
+            } else {
+                GameStep.botTurn(playerField);
+            }
         }
 
         GameOver.run();

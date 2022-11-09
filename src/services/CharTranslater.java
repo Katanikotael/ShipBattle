@@ -22,10 +22,32 @@ public class CharTranslater {
         return vocabulary.get(str);
     }
 
+    public static String replacer(int i) {
+        HashMap<Integer, String> vocabulary = new HashMap<>();
+        vocabulary.put(0, "А");
+        vocabulary.put(1, "Б");
+        vocabulary.put(2, "В");
+        vocabulary.put(3, "Г");
+        vocabulary.put(4, "Д");
+        vocabulary.put(5, "Е");
+        vocabulary.put(6, "Ж");
+        vocabulary.put(7, "З");
+        vocabulary.put(8, "И");
+        vocabulary.put(9, "К");
+
+        return vocabulary.get(i);
+    }
+
     public static Coordinates convert(String str) {
         String[] chars = str.toLowerCase().trim().split(" ");
         int l = replacer(chars[0]);
         int d = Integer.parseInt(chars[1]) - 1;
         return  new Coordinates(l, d);
+    }
+
+    public static String convert(Coordinates coords) {
+        String l = replacer(coords.getL());
+        String d = String.valueOf(coords.getD() + 1);
+        return String.format("%s %s", l, d);
     }
 }
