@@ -4,16 +4,18 @@ import services.CharTranslater;
 
 import java.util.Scanner;
 
-public class PlayerCommand {
+public class PlayerCommand extends Command {
 
     Scanner sc;
     String command;
-    Coordinates coords;
+//    Coordinates coords;
+    Shot shot;
 
     public PlayerCommand() {
         this.sc = new Scanner(System.in);
         this.command = sc.nextLine();
-        this.coords = CharTranslater.convert(command);
+//        this.coords = CharTranslater.convert(command);
+        this.shot = new Shot(CharTranslater.convert(command));
     }
 
     public Scanner getSc() {
@@ -32,11 +34,7 @@ public class PlayerCommand {
         this.command = command;
     }
 
-    public Coordinates getCoords() {
-        return coords;
-    }
-
-    public void setCoords(Coordinates coords) {
-        this.coords = coords;
+    public Shot getShot() {
+        return shot;
     }
 }

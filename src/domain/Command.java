@@ -2,14 +2,10 @@ package domain;
 
 import java.util.Scanner;
 
-public class BotCommand extends Command {
+public class Command {
     String command;
     Shot shot;
-    public static Scanner sc = new Scanner(System.in);
-    public static String answer = "нет";
-
-    public BotCommand() {
-    }
+    Scanner sc;
 
     public String getCommand() {
         return command;
@@ -19,14 +15,6 @@ public class BotCommand extends Command {
         this.command = command;
     }
 
-    public static String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer() {
-        answer = sc.nextLine().toLowerCase().strip();
-    }
-
     public Shot getShot() {
         return shot;
     }
@@ -34,6 +22,12 @@ public class BotCommand extends Command {
     public void setShot(Shot shot) {
         this.shot = shot;
     }
+
+    public Scanner getSc() {
+        return sc;
+    }
+
+    public void setSc(Scanner sc) {
+        this.sc = sc;
+    }
 }
-
-

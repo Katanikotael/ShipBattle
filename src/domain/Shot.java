@@ -4,8 +4,8 @@ public class Shot {
 
     Coordinates coords;
 
-    public Shot (int l, int d) {
-        this.coords = new Coordinates(l, d);
+    public Shot (Coordinates coords) {
+        this.coords = coords;
     }
 
     public Coordinates getCoords() {
