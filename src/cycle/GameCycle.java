@@ -6,14 +6,15 @@ public class GameCycle {
 
     public static void run(Field botField, Field playerField) {
         boolean isInGame = true;
-        GameStep.isPlayerTurn = false;
+        System.out.println("цикл игры");
 
         while (isInGame) {
             if (GameStep.isPlayerTurn) {
                 GameStep.playerTurn(botField);
-                isInGame = botField.aliveChecker();
+                isInGame = botField.AliveChecker();
             } else {
                 GameStep.botTurn(playerField);
+                isInGame = playerField.AliveChecker();
             }
         }
 

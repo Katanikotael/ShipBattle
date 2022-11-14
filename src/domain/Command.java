@@ -1,11 +1,14 @@
 package domain;
 
+import ships.Ship;
+
 import java.util.Scanner;
 
 public class Command {
     String command;
-    Shot shot;
+    public Shot shot;
     Scanner sc;
+    Ship ship;
 
     public String getCommand() {
         return command;
@@ -29,5 +32,13 @@ public class Command {
 
     public void setSc(Scanner sc) {
         this.sc = sc;
+    }
+
+    public Ship getShip() {
+        return ship;
+    }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
     }
 }

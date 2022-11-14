@@ -37,4 +37,14 @@ public enum Direction {
         Random random = new Random();
         return values()[random.nextInt(values().length)];
     }
+
+    public static Direction getRandomHorizontalDirection() {
+        Random random = new Random();
+        return values()[random.nextInt(values().length - 2)];
+    }
+
+    public static Direction getRandomVerticalDirection() {
+        Random random = new Random();
+        return values()[random.nextInt(values().length - 2) + 2];
+    }
 }

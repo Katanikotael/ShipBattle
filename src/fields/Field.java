@@ -22,15 +22,7 @@ public class Field {
         }
     }
 
-    /*
-    Scans the game field for live ships.
-     */
-    public boolean aliveChecker() {
-        for (int[] ints: this.matrix) {
-            for (int anInt: ints) {
-                if (anInt == 1) { return true; }
-            }
-        }
-        return false;
+    public boolean AliveChecker() {
+        return true;
     }
 }

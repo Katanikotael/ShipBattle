@@ -15,7 +15,8 @@ public class ShipAliveChecker {
             for (int i = 1; i < 6; i++) {
                 int l = dir.getL(coords.getL(), coords.getD(), i);
                 int d = dir.getD(coords.getL(), coords.getD(), i);
-                if (CoordsInsideFieldValidator.validate(l, d)) {
+                Coordinates newCoords = new Coordinates(l, d);
+                if (CoordsInsideFieldValidator.validate(newCoords)) {
                     int currentTileValue = field.matrix[d][l];
                     if (currentTileValue == 8) {
                         break;

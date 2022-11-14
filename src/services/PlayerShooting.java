@@ -1,10 +1,10 @@
-package domain;
+package services;
 
 import cycle.GameStep;
+import domain.Command;
 import fields.Field;
-import services.ShipAliveChecker;
 
-public class PlayerShooting implements Shooting {
+public class PlayerShooting{
 
     public void run(Field field, Command com) {
         int l = com.getShot().getCoords().getL();
@@ -21,6 +21,6 @@ public class PlayerShooting implements Shooting {
             System.out.println("Мимо");
             GameStep.isPlayerTurn = false;
         }
-        field.print();
+//        field.print();
     }
 }

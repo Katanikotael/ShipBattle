@@ -1,5 +1,6 @@
 package services;
 
+import domain.BotCommand;
 import domain.Coordinates;
 import fields.Field;
 import ships.Ship;
@@ -16,14 +17,21 @@ public class NearPlaceCreator {
         }
     }
 
+    public static void createForBot (Field field, Ship ship) {
+        for (int i = 0; i < BotCommand.dmgBlocks; i++) {
+            markAroundTile(field, BotCommand.ship.coords[i]);
+        }
+    }
+
     private static void markAroundTile (Field field, Coordinates coord) {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 int d = coord.getD() + i;
                 int l = coord.getL() + j;
-                if (CoordsInsideFieldValidator.validate(d, l)) {
-                    if ((field.matrix[coord.getD() + i][coord.getL() + j]) == 0) {
-                        field.matrix[coord.getD() + i][coord.getL() + j] = 8;
+                Coordinates newCoords = new Coordinates(l, d);
+                if (CoordsInsideFieldValidator.validate(newCoords)) {
+                    if ((field.matrix[d][l]) == 0) {
+                        field.matrix[d][l] = 8;
                     }
                 }
             }

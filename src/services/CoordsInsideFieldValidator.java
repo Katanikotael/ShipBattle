@@ -1,6 +1,10 @@
 package services;
 
+import domain.Coordinates;
+
 public class CoordsInsideFieldValidator {
 
-    public static boolean validate(int l, int d) { return d >= 0 && d <= 9 && l >= 0 && l <= 9; }
+    public static boolean validate(Coordinates coords) {
+        return coords.getD() >= 0 && coords.getD() <= 9 && coords.getL() >= 0 && coords.getL() <= 9;
+    }
 }

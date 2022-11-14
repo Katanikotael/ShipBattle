@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class CharTranslater {
 
-    public static int replacer(String str) {
+    private static int replacer(String str) {
         HashMap<String, Integer> vocabulary = new HashMap<>();
         vocabulary.put("а", 0);
         vocabulary.put("б", 1);
@@ -22,7 +22,7 @@ public class CharTranslater {
         return vocabulary.get(str);
     }
 
-    public static String replacer(int i) {
+    private static String replacer(int i) {
         HashMap<Integer, String> vocabulary = new HashMap<>();
         vocabulary.put(0, "А");
         vocabulary.put(1, "Б");
@@ -39,7 +39,11 @@ public class CharTranslater {
     }
 
     public static Coordinates convert(String str) {
-        String[] chars = str.toLowerCase().trim().split(" ");
+//        String[] chars = str.toLowerCase().trim().split(" ");
+        String newStr = str.toLowerCase().replace(" ", "");
+        String[] chars = new String[2];
+        chars[0] = newStr.substring(0, 1);
+        chars[1] = newStr.substring(1);
         int l = replacer(chars[0]);
         int d = Integer.parseInt(chars[1]) - 1;
         return  new Coordinates(l, d);

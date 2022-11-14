@@ -1,24 +1,21 @@
 import cycle.GameCycle;
+import cycle.GameStep;
 import fields.Field;
-import fields.FieldEnemy;
-import fields.FieldOwn;
+import fields.FieldBot;
+import fields.FieldPlayer;
 import ships.ShipPack;
 
 public class Main {
     public static void main(String[] args) {
-        Field myField = new FieldOwn();
-//
-        ShipPack myShipPack = new ShipPack();
-        myShipPack.deployAllShips(myField);
-//        ShipPack myShipPack = new ShipPack(myShip);
-//        myShipPack.manualDeploy(myField, 4, 4, Direction.DOWN);
-//        myField.print();
-//
-//        GameCycle.run(myField);
+        Field botField = new FieldBot();
+        Field playerField = new FieldPlayer();
 
-        Field enemyField = new FieldEnemy();
-        enemyField.print();
-        GameCycle.run(myField, enemyField);
+        ShipPack botShipPack = new ShipPack();
+        botShipPack.deployAllShips(botField);
+
+        GameStep.isPlayerTurn = true;
+
+        GameCycle.run(botField, playerField);
 
     }
 }
