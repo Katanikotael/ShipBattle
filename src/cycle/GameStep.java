@@ -13,7 +13,7 @@ public class GameStep {
     public static boolean isPlayerTurn;
 
     public static void playerTurn(Field field) {
-        System.out.println("ход игрока");
+        System.out.println("Твой ход:");
         PlayerCommand com = new PlayerCommand();
         com.setCommand(com.getSc().nextLine());
         boolean isCheck = PlayerCommandValidator.validate(com.getCommand());
@@ -27,11 +27,9 @@ public class GameStep {
     }
 
     public static void botTurn(Field field) {
-        System.out.println("ход бота");
+        System.out.println("Мой ход:");
         BotCommand com = new BotCommand();
         botShoot(field, com);
-
-        System.out.println();
     }
 
 
@@ -41,16 +39,17 @@ public class GameStep {
         stepType.selectType(field, com);
 
         System.out.println(CharTranslater.convert(com.getShot().getCoords()));
-        BotCommand.answer = BotCommand.sc.nextLine();
+        BotCommand.answer = BotCommand.sc.nextLine().toLowerCase();
 
         ResultsMap resMap = new ResultsMap();
         boolean isCheck = resMap.keyCheck(BotCommand.answer);
         while (!isCheck) {
-            System.out.println("answer error");
-            BotCommand.answer = BotCommand.sc.nextLine();
+            System.out.println("Неизвестный ответ. Ответь: мимо, ранил или убил.");
+            BotCommand.answer = BotCommand.sc.nextLine().toLowerCase();
             isCheck = resMap.keyCheck(BotCommand.answer);
         }
 
         resMap.getResults(field, com);
+        field.print();
     }
 }

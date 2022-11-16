@@ -12,14 +12,14 @@ public class PlayerCommandValidator {
         digitsConstrunct();
         String newStr = str.toLowerCase().replace(" ", "");
         if (newStr.length() > 3 || newStr.length() < 2) {
-            System.out.println("не формат");
+            System.out.println("Напиши, куда будешь стрелять. Например: а1");
             return false;
         }
         String[] chars = new String[2];
         chars[0] = newStr.substring(0, 1);
         chars[1] = newStr.substring(1);
         if (!letters.contains(chars[0]) || !digits.contains(chars[1])) {
-            System.out.println("не совпадает");
+            System.out.println("Напиши, куда будешь стрелять. Например: а1");
             return false;
         }
         return true;

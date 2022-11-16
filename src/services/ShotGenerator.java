@@ -10,7 +10,7 @@ public class ShotGenerator {
         int l = coordsFirstShot.getL();
         int d = coordsFirstShot.getD();
         Direction dir = DirectionDeterminer.determine(BotCommand.ship);
-        for (int i = 1; i < 5; i++) {
+        for (int i = 0; i < 7; i++) {
             Coordinates newCoords = new Coordinates(dir.getL(l, d, i), dir.getD(l, d, i));
             if (CoordsInsideFieldValidator.validate(newCoords) && ValueTileChecker.ZeroCheck(field, newCoords)) {
                 com.setShot(new Shot(newCoords));
@@ -19,7 +19,7 @@ public class ShotGenerator {
                 break;
             }
         }
-        for (int i = -1; i > -5; i--) {
+        for (int i = 0; i > -7; i--) {
             Coordinates newCoords = new Coordinates(dir.getL(l, d, i), dir.getD(l, d, i));
             if (CoordsInsideFieldValidator.validate(newCoords) && ValueTileChecker.ZeroCheck(field, newCoords)) {
                 com.setShot(new Shot(newCoords));
@@ -28,6 +28,7 @@ public class ShotGenerator {
                 break;
             }
         }
+        System.out.println("ОШИБКА!");
         return new Shot(coordsFirstShot);
     }
 }
