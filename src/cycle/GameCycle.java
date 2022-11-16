@@ -3,11 +3,12 @@ package cycle;
 import fields.Field;
 
 public class GameCycle {
+    public static boolean playerWin = false;
 
     public static void run(Field botField, Field playerField) {
-        boolean isInGame = true;
-        System.out.println("цикл игры");
+        RockPapperScissors.run();
 
+        boolean isInGame = true;
         while (isInGame) {
             if (GameStep.isPlayerTurn) {
                 GameStep.playerTurn(botField);
@@ -18,6 +19,10 @@ public class GameCycle {
             }
         }
 
-        GameOver.run();
+        if (playerWin) {
+            GameOver.playerWin();
+        } else {
+            GameOver.botWin();
+        }
     }
 }
