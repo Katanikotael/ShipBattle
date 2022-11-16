@@ -20,6 +20,5 @@ public class PlayerShooting{
             System.out.println("Мимо\n");
             GameStep.isPlayerTurn = false;
         }
-//        field.print();
     }
 }

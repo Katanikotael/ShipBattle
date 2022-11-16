@@ -50,6 +50,5 @@ public class GameStep {
         }
 
         resMap.getResults(field, com);
-        field.print();
     }
 }
